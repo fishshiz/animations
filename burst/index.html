@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+    <script>
+        const burst = new mojs.Burst({
+            radius: { 0: 100 },
+            count: 20,
+            children: {
+                shape: 'cross',
+                stroke: "teal",
+                strokeWidth: { 6: 0 },
+                angle: { 360: 0 },
+                radius: { 30: 5 },
+                duration: 3000
+            }
+        });
+
+        const circopt = {
+            radius: { 0: 200},
+            fill: 'none',
+            stroke: {'yellow' : 'red'},
+            strokeWidth: 5,
+            opacity: {1: 0},
+            duration: 3500,
+            easing: 'sin.out'
+        };
+
+        const circ = new mojs.Shape({
+            ...circopt
+        });
+        const circ2 = new mojs.Shape({
+            ...circopt,
+            delay: 500
+        });
+        const burst2 = new mojs.Burst({
+            radius: { 0: 200 },
+            count: 12,
+            children: {
+                shape: 'zigzag',
+                points: 7,
+                stroke: { 'magenta': 'pink' },
+                fill: 'none',
+                strokeWidth: { 6: 0 },
+                angle: { '-360': 0 },
+                radius: { 30: 5 },
+                opacity: { 1: 0 },
+                duration: 3000
+            }
+        });
+        const burst3 = new mojs.Burst({
+            radius: { 0: 200 },
+            count: 5,
+            children: {
+                color: 'purple',
+                points: 7,
+                stroke: { 'magenta': 'pink' },
+                strokeWidth: { 6: 0 },
+                angle: { '-360': 0 },
+                radius: { 10: 5 },
+                opacity: { 1: 0 },
+                duration: 3000
+            }
+        });
+
+        const timeline = new mojs.Timeline({
+            repeat: 999
+        }).add(burst, burst2, burst3, circ, circ2).play();
+    </script>
+</body>
+
+</html>
