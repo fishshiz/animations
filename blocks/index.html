@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Blocks</title>
+</head>
+<body>
+    <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+    <script>
+    const block = new mojs.Shape({
+        shape: 'rect',
+        isYoyo: true,
+        fill: 'none',
+        stroke:  { 'rgba(0,255,255, 1)': 'magenta' },
+        angle: { 0 : 360 },
+        radius: { 5 : 40 },
+        strokeWidth: { 10 : 1 },
+        duration: 3000,
+        easing: 'quart.inout'
+    });
+
+    var extremeInElasticOutEasing = mojs.easing.path('M0,100 C50,100 50,100 50,50 C50,-15.815625 53.7148438,-19.1218754 60.4981394,0 C62.2625924,4.97393188 66.4286578,6.07928485 68.3303467,0 C71.3633751,-6.23011049 74.5489919,-1.10166123 75.7012545,0 C79.6946191,3.60945678 84.2063904,-0.104182975 84.2063905,0 C87.5409362,-2.25875668 90.4589294,-0.0327241098 93.4950242,0 C97.3271182,0.20445262 100,-0.104182352 100,0');
+
+    const timeline = new mojs.Timeline({
+            repeat: 999,
+            isYoyo: true,
+            
+        }).add(block).play();
+    </script>
+</body>
+</html>
